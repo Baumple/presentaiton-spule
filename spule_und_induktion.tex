@@ -1,0 +1,84 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Frankfurt}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{itemize items}[circle]
+
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[sorting=none,style=numeric]{biblatex}
+\usepackage{circuitikz}
+\usepackage{siunitx}
+\usepackage{pifont}
+\usepackage[normalem]{ulem}
+\usepackage{svg}
+
+\addbibresource{./sources/spule.bib}
+\addbibresource{./sources/images.bib}
+
+\AtBeginBibliography{\small}
+
+\graphicspath{ {./assets/} }
+
+\title{Spulen}
+\subtitle{Bedeutung und Wirkung der Induktion}
+\author{
+    Jana Schnopp \and
+    Julien Deutscher \and
+    Cornelia Baumbach \and
+    Linus Ziegler
+}
+
+\institute{Ferdinand-Braun-Schule Fulda}
+
+%% create a title slide for every new section
+\AtBeginSection[] {
+    \begin{frame}
+        \vfill
+        \centering
+        \begin{beamercolorbox}[sep=8pt, center, shadow=true,rounded=true]{title}
+            \usebeamerfont{title}\insertsectionhead\par%
+        \end{beamercolorbox}
+        \vspace{1cm}
+    \end{frame}
+}
+
+
+%% create a title and subtitle for the frame
+\def\makeframetitle {
+    \frametitle{\insertsubsectionhead}
+    \framesubtitle{\insertsectionhead}
+}
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\begin{frame}
+    \section*{Inhalt}
+    \frametitle{Inhalt}
+    \tableofcontents
+\end{frame}
+
+\include{spule_definition.tex}
+\include{spule_funktionsweise.tex}
+\include{spule_anwendungen.tex}
+
+\nocite{*}
+\section{Quellenverzeichnis}
+\begin{frame}[allowframebreaks]
+    \frametitle{Bilder und Illustrationen}
+    \framesubtitle{Literatur}
+
+    \printbibliography[nottype=online,heading=subbibliography, title={Informationsquellen}]
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Informationsquellen und Sachtexte}
+    \framesubtitle{Literatur}
+    \printbibliography[type=online, heading=subbibliography,title={Bilder und Illustrationen}]
+\end{frame}
+
+\end{document}
